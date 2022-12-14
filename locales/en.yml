@@ -1,0 +1,39 @@
+button:
+  about: About
+  back: Back
+  go: GO
+  home: Home
+  quick: Quick
+  donate: Donate
+  toggle_dark: Toggle dark mode
+  toggle_langs: Change languages
+  start_quick: Start quick process
+intro:
+  desc: Opinionated Vite Starter Template
+  dynamic-route: Demo of dynamic route
+  hi: Hi, {name}!
+  aka: Also known as
+  whats-your-name: What's your name?
+not-found: Not found
+quick:
+  title: Quick Process
+  topic: Topic Question
+  description: Description
+  negativeScoreWeighting: Negative Score Weighting
+  timeLeftHeading: Select the time for proposals and voting
+  switchCalendar: Switch to calendar selector
+  switchSlider: Switch to slide selector
+  proposalTime: Proposal Time
+  votingTime: Voting Time
+  minutes: Minutes
+  hours: Hours
+  days: Days
+wip: Not implemented yet, please consider donating to help support this project!
+layouts:
+  title: Ukuvota
+TBD: TBD
+pages:
+  title:
+    top: Ukuvota
+captchaCode: Captcha code
+create: Create

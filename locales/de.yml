@@ -1,0 +1,39 @@
+button:
+  about: Über
+  back: Zurück
+  go: Los
+  home: Startseite
+  quick: Schnell
+  donate: Spenden
+  toggle_dark: Dunkelmodus umschalten
+  toggle_langs: Sprachen ändern
+  start_quick: Starten Sie den schnellen Prozess
+intro:
+  desc: Vite Startvorlage mit Vorlieben
+  dynamic-route: Demo einer dynamischen Route
+  hi: Hi, {name}!
+  aka: Auch bekannt als
+  whats-your-name: Wie heißt du?
+not-found: Nicht gefunden
+quick:
+  title: Schneller Prozess
+  topic: Thema Frage
+  description: Beschreibung
+  negativeScoreWeighting: Negative Punktegewichtung
+  timeLeftHeading: Wählen Sie die Zeit für Vorschläge und Abstimmung
+  switchCalendar: Zum Kalender-Auswähler wechseln
+  switchSlider: Wechsel zum Schieberegler
+  proposalTime: Vorschlagzeit
+  votingTime: Abstimmungszeit
+  minutes: Minuten
+  hours: Stunden
+  days: Tage
+wip: Noch nicht implementiert, bitte spenden Sie, um dieses Projekt zu unterstützen!
+layouts:
+  title: Ukuvota
+TBD: TBD
+pages:
+  title:
+    top: Ukuvota
+captchaCode: Captcha-Code
+create: Erstellen
