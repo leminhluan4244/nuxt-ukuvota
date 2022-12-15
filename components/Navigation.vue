@@ -15,6 +15,7 @@ const router = useRouter()
 const setLocale = (event: Event & { target: any }) => {    
     router.push(switchLocalePath(event.target.value))
 }
+const langs = locales.value.map((lang: any) => lang.code)
 
 </script>
 <template>
@@ -28,7 +29,7 @@ const setLocale = (event: Event & { target: any }) => {
             <div class="dark:i-carbon-moon i-carbon-sun" />
         </button>
         <select @change="setLocale" >
-            <option v-for="lang in locales" :selected="lang.code === locale" :value="lang.code">{{ lang.code }}</option>
+            <option v-for="lang in langs" :selected="lang === locale" :value="lang">{{ lang }}</option>
         </select>
     </nav>    
 </template>
@@ -41,9 +42,8 @@ button, select {
     @apply border-0;
 }
 
-button:hover, select:hover {
+button:hover, select:hover{
     @apply bg-orange-400 bg-opacity-20 text-orange-600;
 }
-
 
 </style>

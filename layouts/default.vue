@@ -23,8 +23,11 @@ const title = computed(() => t('layouts.title', { title: t(route.meta.title ?? '
       <Body>
         <div class="text-gray-700 dark:text-gray-200">
           <Navigation/>
-          <main class="px-4 py-10 max-w-screen-lg m-auto">
-            <slot />
+          <main>
+            <div class="max-w-screen-lg flex m-auto">
+              <slot />
+            </div>
+            <Footer/>
           </main>
         </div>
       </Body>
