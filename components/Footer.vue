@@ -31,12 +31,8 @@ const menu = [
         light: true
     },
     {
-        href: "https://github.com/ukuvota/ukuvota",
+        href: "https://github.com/waotzi/ukuvota",
         icon: "github"
-    },
-    {
-        href: "https://codeberg.org/Ukuvota",
-        icon: "codeberg"
     },
 ]
 
