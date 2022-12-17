@@ -1,31 +1,34 @@
 <script lang="ts" setup>
+const props = defineProps({
+  icon: {
+    type: String,
+    required: false,
+  },
+  to: {
+    type: String,
+    required: true,
+  },
+})
+
 const localePath = useLocalePath()
 
 const route = useRoute()
-
-const props = defineProps({
-    icon: {
-        type: String,
-        required: false
-    },
-    to: {
-      type: String,
-      required: true
-    },
-})
 
 const path = computed(() => localePath(props.to))
 
 const selected = computed(() => path.value === route.path)
 </script>
+
 <template>
-    <NuxtLink :class="selected ? 'selected' : ''" :to="path">
-        <div class="flex items-center">
-            <div :class="icon"/>
-            <div v-if="icon">&nbsp;</div>
-            <slot/>
-        </div>
-    </NuxtLink>
+  <NuxtLink :class="selected ? 'selected' : ''" :to="path">
+    <div class="flex items-center">
+      <div :class="icon" />
+      <div v-if="icon">
+&nbsp;
+      </div>
+      <slot />
+    </div>
+  </NuxtLink>
 </template>
 
 <style scoped>
@@ -39,6 +42,4 @@ a.selected {
     @apply border-b-2 border-solid border-orange-600 text-orange-600;
 
 }
-
-
 </style>

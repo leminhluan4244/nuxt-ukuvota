@@ -1,9 +1,9 @@
 <script setup>
 useHead({
-  title: 'Vitesse Nuxt 3',
+  title: 'Ukuvota',
   link: [
     {
-      rel: 'icon', type: 'image/png', href: '/nuxt.png',
+      rel: 'icon', type: 'image/png', href: '/logo.png',
     },
   ],
 })
@@ -14,5 +14,3 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-

@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
-    '@nuxt/content'
+    '@nuxt/content',
   ],
   i18n: {
     baseUrl: 'https://ukuvota.world',
@@ -14,13 +14,13 @@ export default defineNuxtConfig({
       {
         code: 'en',
         iso: 'en-US',
-        file: 'en.yml'
+        file: 'en.yml',
       },
       {
         code: 'de',
         iso: 'de-DE',
-        file: 'de.yml'
-      }
+        file: 'de.yml',
+      },
     ],
     lazy: true,
     langDir: 'locales',
@@ -32,8 +32,8 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root',  // recommended
-    }
+      redirectOn: 'root', // recommended
+    },
   },
   experimental: {
     reactivityTransform: true,
@@ -41,9 +41,24 @@ export default defineNuxtConfig({
   },
   css: [
     '@unocss/reset/tailwind.css',
-    '@/assets/styles/main.css'
+    '@/assets/styles/main.css',
   ],
   colorMode: {
     classSuffix: '',
+  },
+  nitro: {
+    storage: {
+      db: {
+        driver: 'redis',
+        /* redis connector options */
+      },
+    },
+    // Development
+    devStorage: {
+      db: {
+        driver: 'fs',
+        base: './data/db',
+      },
+    },
   },
 })

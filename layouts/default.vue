@@ -4,10 +4,11 @@ const { t } = useI18n()
 const head = useLocaleHead({
   addDirAttribute: true,
   identifierAttribute: 'id',
-  addSeoAttributes: true
+  addSeoAttributes: true,
 })
 const title = computed(() => t('layouts.title', { title: t(route.meta.title ?? 'TBD') }))
 </script>
+
 <template>
   <div>
     <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
@@ -22,12 +23,12 @@ const title = computed(() => t('layouts.title', { title: t(route.meta.title ?? '
       </Head>
       <Body>
         <div class="text-gray-700 dark:text-gray-200">
-          <Navigation/>
+          <Navigation />
           <main>
             <div class="max-w-screen-lg flex m-auto">
               <slot />
             </div>
-            <Footer/>
+            <Footer />
           </main>
         </div>
       </Body>

@@ -1,28 +1,26 @@
 <script lang="ts" setup>
-const visible = ref(false)  
+const visible = ref(false)
 const { locale } = useI18n()
-
 </script>
 
 <template>
-    <div>
-        <button type="button" class="px-2 icon-btn pt-1" @click="visible = true">
-          <div i="carbon-information" />
-        </button>
+  <div>
+    <button type="button" class="px-2 icon-btn pt-1" @click="visible = true">
+      <div i="carbon-information" />
+    </button>
 
-        <div class="modal" v-if="visible">
-            <div class="modal-content">
-                <div class="flex justify-between items-center">
-                    <b>{{ $t('quick.negativeScoreWeighting') }}</b>
-                    <button class="px-2 icon-btn pt-1" @click="visible = false">
-                      <div i="carbon-close" />
-                    </button>
-
-                </div>
-                <ContentDoc  :path="'/' + locale + '/negativescoreweighting'"/>
-            </div>
+    <div v-if="visible" class="modal">
+      <div class="modal-content">
+        <div class="flex justify-between items-center">
+          <b>{{ $t('quick.negativeScoreWeighting') }}</b>
+          <button class="px-2 icon-btn pt-1" @click="visible = false">
+            <div i="carbon-close" />
+          </button>
         </div>
+        <ContentDoc :path="`/${locale}/negativescoreweighting`" />
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped>
@@ -37,7 +35,7 @@ const { locale } = useI18n()
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
   }
-  
+
   /* Modal Content/Box */
   .modal-content {
     @apply bg-white dark:bg-black;
@@ -47,7 +45,7 @@ const { locale } = useI18n()
     border: 1px solid #888;
     max-width: 500px; /* Could be more or less, depending on screen size */
   }
-  
+
   /* The Close Button */
   .close {
     color: #aaa;
@@ -55,7 +53,7 @@ const { locale } = useI18n()
     font-size: 28px;
     font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
     color: black;
