@@ -1,7 +1,8 @@
 <template>
   <PageTemplate>
-    <div class="max-w-screen-lg flex m-auto">
+    <div class="text-center max-w-screen-sm m-auto">
       <slot />
     </div>
   </PageTemplate>
 </template>
+

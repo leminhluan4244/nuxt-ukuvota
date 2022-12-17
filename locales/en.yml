@@ -37,3 +37,17 @@ pages:
     top: Ukuvota
 captchaCode: Captcha code
 create: Create
+footer:
+  powered: powered by
+  hosted: hostedy by
+  supported: supported with
+  donations: donations
+  maintained: maintained by
+noRightsReserved: no rights reserved
+proposal:
+  zero:
+    title: Status quo
+    description: Keep things the way they are.
+  one:
+    title: Repeat process
+    description: Repeat the process and look for other options.

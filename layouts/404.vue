@@ -3,8 +3,7 @@ const router = useRouter()
 </script>
 
 <template>
-  <div class="text-gray-700 dark:text-gray-200">
-    <Navigation />
+  <PageTemplate>
     <main class="px-4 py-10 text-center">
       <div class="text-4xl">
         <div i-carbon-warning inline-block />
@@ -16,5 +15,5 @@ const router = useRouter()
         </button>
       </div>
     </main>
-  </div>
+  </PageTemplate>
 </template>

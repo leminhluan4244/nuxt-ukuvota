@@ -37,3 +37,17 @@ pages:
     top: Ukuvota
 captchaCode: Captcha-Code
 create: Erstellen
+footer:
+  powered: betrieben von
+  hosted: gehostet bei
+  supported: unterstützt mit
+  donations: Spenden
+  maintained: gewartet von
+noRightsReserved: keine Rechte vorbehalten
+proposal:
+  zero:
+    title: Aktueller Stand
+    description: Die Dinge so belassen, wie sie sind.
+  one:
+    title: Prozess wiederholen
+    description: Wiederholen Sie den Vorgang und suchen Sie nach anderen Optionen.

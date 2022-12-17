@@ -47,13 +47,13 @@ const menu = [
         </a>
       </div>
       <div class="flex">
-        <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">no rights reserved</a>.
-        powered by&nbsp;<a href="https://nuxt.com/">nuxt</a>.
-        hosted by&nbsp;<a href="https://fly.io/">fly.io</a>.
-        supported with&nbsp;<NuxtLink :to="localePath('/donate')">
-          donations
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">{{ $t('noRightsReserved') }}</a>.
+        {{ $t('footer.powered') }}&nbsp;<a href="https://nuxt.com/">nuxt</a>.
+        {{ $t('footer.hosted') }}&nbsp;<a href="https://fly.io/">fly.io</a>.
+        {{ $t('footer.supported') }}&nbsp;<NuxtLink :to="localePath('/donate')">
+          {{ $t('footer.donations') }}
         </NuxtLink>.
-        maintained by&nbsp;<a href="https://waotzi.org">waotzi</a>.
+        {{ $t('footer.maintained') }}&nbsp;<a href="https://waotzi.org">waotzi</a>.
       </div>
     </div>
   </footer>

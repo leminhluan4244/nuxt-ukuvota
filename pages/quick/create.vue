@@ -1,23 +1,16 @@
 <script lang="ts" setup>
-const localePath = useLocalePath()
-
-const weightingOptions: { value: number; label: string }[] = []
-
-for (let i = 1; i <= 6; i++) {
-  weightingOptions.push({
-    value: i,
-    label: `x${i}`,
-  })
-}
-
-weightingOptions.push({
-  value: -1,
-  label: '∞',
+import { weightingOptions } from '~~/composables/weightingOptions'
+definePageMeta({
+  layout: 'quick',
 })
+const router = useRouter()
+const localePath = useLocalePath()
+const { t } = useI18n()
 
+const weightOptions = weightingOptions()
 const topicQuestion = ref('')
 const topicDescription = ref('')
-const weighting = ref(weightingOptions[2].value)
+const weighting = ref(weightOptions[2])
 const proposalTimeLeft = reactive({ minutes: 20, hours: 3, days: 0 })
 const votingTimeLeft = reactive({ minutes: 20, hours: 3, days: 0 })
 
@@ -62,23 +55,50 @@ onMounted(() => {
 })
 const captchaCode = ref('')
 
+const getTimestamp = (obj: any) => {
+  let rtn = 0
+  rtn += obj.minutes * 60 * 1000
+  rtn += obj.hours * 3600 * 1000
+  rtn += obj.days * 24 * 3600 * 1000
+  return rtn
+}
+
+const proposals = [
+  {
+    id: 0,
+    title: t('proposal.zero.title'),
+    description: t('proposal.zero.description'),
+    lastUpdate: +new Date(),
+  },
+  {
+    id: 1,
+    title: t('proposal.one.title'),
+    description: t('proposal.zero.description'),
+    lastUpdate: +new Date(),
+  },
+]
+
 const submitForm = async () => {
   const options = {
     method: 'POST',
     body: {
-      topic_name: topicQuestion.value,
+      title: topicQuestion.value,
       description: topicDescription.value,
       weighting: weighting.value,
-      proposal_end: proposalTimeLeft,
-      voting_end: votingTimeLeft,
+      proposal_end: new Date(+new Date() + getTimestamp(proposalTimeLeft)).toISOString(),
+      voting_end: new Date(+new Date() + getTimestamp(proposalTimeLeft) + getTimestamp(votingTimeLeft)).toISOString(),
+      proposals,
     },
   }
   const { data } = await useFetch('/api/addQuickProcess', options)
+
+  const id = data.value?.id
+  router.push(localePath(`/quick/${id}/proposals`))
 }
 </script>
 
 <template>
-  <div class="text-center max-w-screen-sm m-auto">
+  <div>
     <h1>{{ $t('quick.title') }}</h1>
     <form @submit.prevent="submitForm()">
       <label for="topicQuestion">{{ $t('quick.topic') }}</label>
@@ -90,7 +110,7 @@ const submitForm = async () => {
       <label for="negativeScoreWeighting">{{ $t('quick.negativeScoreWeighting') }}</label>
       <span class="flex justify-center">
         <select v-model="weighting" class="mx-2 rounded" name="negativeScoreWeighting">
-          <option v-for="weight in weightingOptions" :key="weight.value" :value="weight.value">{{ weight.label }}</option>
+          <option v-for="weight in weightOptions" :key="weight.value" :value="weight.value">{{ weight.label }}</option>
         </select>
         <NegativeScoreWeightingInfo />
       </span>
